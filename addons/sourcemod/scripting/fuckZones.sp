@@ -3417,10 +3417,10 @@ void GetZoneNameByType(int type, char[] buffer, int size)
 	switch (type)
 	{
 		case ZONE_TYPE_NONE: strcopy(buffer, size, "N/A");
-		case ZONE_TYPE_BOX: strcopy(buffer, size, "矩形");
-		case ZONE_TYPE_CIRCLE: strcopy(buffer, size, "圆形");
-		case ZONE_TYPE_POLY: strcopy(buffer, size, "多边形");
-		case ZONE_TYPE_TRIGGER: strcopy(buffer, size, "触发器");
+		case ZONE_TYPE_BOX: strcopy(buffer, size, "Box");
+		case ZONE_TYPE_CIRCLE: strcopy(buffer, size, "Circle");
+		case ZONE_TYPE_POLY: strcopy(buffer, size, "Polygon");
+		case ZONE_TYPE_TRIGGER: strcopy(buffer, size, "Trigger");
 	}
 }
 
@@ -3450,19 +3450,19 @@ int GetZoneTypeByIndex(int entity)
 
 int GetZoneTypeByName(const char[] sType)
 {
-	if (StrEqual(sType, "矩形"))
+	if (StrEqual(sType, "Box"))
 	{
 		return ZONE_TYPE_BOX;
 	}
-	else if (StrEqual(sType, "圆形"))
+	else if (StrEqual(sType, "Circle"))
 	{
 		return ZONE_TYPE_CIRCLE;
 	}
-	else if (StrEqual(sType, "多边形"))
+	else if (StrEqual(sType, "Polygon"))
 	{
 		return ZONE_TYPE_POLY;
 	}
-	else if (StrEqual(sType, "触发器"))
+	else if (StrEqual(sType, "Trigger"))
 	{
 		return ZONE_TYPE_TRIGGER;
 	}
@@ -3474,23 +3474,23 @@ void GetDisplayNameByType(int type, char[] buffer, int size)
 {
 	switch (type)
 	{
-		case DISPLAY_TYPE_HIDE: strcopy(buffer, size, "隐藏");
-		case DISPLAY_TYPE_BOTTOM: strcopy(buffer, size, "仅底部");
-		case DISPLAY_TYPE_FULL: strcopy(buffer, size, "完全");
+		case DISPLAY_TYPE_HIDE: strcopy(buffer, size, "Hide");
+		case DISPLAY_TYPE_BOTTOM: strcopy(buffer, size, "Bottom");
+		case DISPLAY_TYPE_FULL: strcopy(buffer, size, "Full");
 	}
 }
 
 int GetDisplayTypeByName(const char[] sType)
 {
-	if (StrEqual(sType, "隐藏"))
+	if (StrEqual(sType, "Hide"))
 	{
 		return DISPLAY_TYPE_HIDE;
 	}
-	else if (StrEqual(sType, "仅底部"))
+	else if (StrEqual(sType, "Bottom"))
 	{
 		return DISPLAY_TYPE_BOTTOM;
 	}
-	else if (StrEqual(sType, "完全"))
+	else if (StrEqual(sType, "Full"))
 	{
 		return DISPLAY_TYPE_FULL;
 	}
@@ -5574,7 +5574,7 @@ void AddZoneMenuItems(int client, Menu menu, bool create, int type, int pointsLe
 			AddItemFormat(menu, "startpoint_a_no_z", fuckZones_IsPositionNull(start) ? ITEMDRAW_DISABLED : ITEMDRAW_DEFAULT, "%T", "Menu - Item - Set Starting Point (Ignore Z/Height)", client);
 			AddItemFormat(menu, "startpoint_a_precision", fuckZones_IsPositionNull(start) ? ITEMDRAW_DISABLED : ITEMDRAW_DEFAULT, "%T", "Menu - Item - Edit Starting Point (Precision)", client);
 			AddItemFormat(menu, "startpoint_b", _, "%T", "Menu - Item - Set Ending Point", client);
-			AddItemFormat(menu, "startpoint_b_no_z", fuckZones_IsPositionNull(end) ? ITEMDRAW_DISABLED : ITEMDRAW_DEFAULT, "%T", "Menu - Item - Set Ending Point (Ignore Z/Height)", client);		
+			AddItemFormat(menu, "startpoint_b_no_z", fuckZones_IsPositionNull(end) ? ITEMDRAW_DISABLED : ITEMDRAW_DEFAULT, "%T", "Menu - Item - Set Ending Point (Ignore Z/Height)", client);
 			AddItemFormat(menu, "startpoint_b_precision", fuckZones_IsPositionNull(end) ? ITEMDRAW_DISABLED : ITEMDRAW_DEFAULT, "%T", "Menu - Item - Edit Ending Point (Precision)", client);
 			AddItemFormat(menu, "set_teleport", (fuckZones_IsPositionNull(start) || fuckZones_IsPositionNull(end)) ? ITEMDRAW_DISABLED : ITEMDRAW_DEFAULT, "%T", "Menu - Item - Set Teleport Point", client);
 		}
